@@ -6,26 +6,27 @@
   <title>Nicko Lim Babaran | BSCS Student Portfolio</title>
   <meta name="description" content="Portfolio of Nicko Lim Babaran, a third-year BS Computer Science student at Cavite State University – Bacoor Campus.">
   <meta name="author" content="Nicko Lim Babaran">
-  <meta name="theme-color" content="#0B1F3A">
+  <meta name="theme-color" content="#050816">
   <meta property="og:title" content="Nicko Lim Babaran | BSCS Student Portfolio">
   <meta property="og:description" content="Computer Science student, learning by building.">
   <meta property="og:type" content="website">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%231D4ED8'/%3E%3Cpath d='M22 76V24h11l24 34V24h11v52H57L33 42v34z' fill='white'/%3E%3Ccircle cx='78' cy='72' r='7' fill='%23F5B942'/%3E%3C/svg%3E">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%235B4FD6'/%3E%3Cpath d='M22 76V24h11l24 34V24h11v52H57L33 42v34z' fill='white'/%3E%3Ccircle cx='78' cy='72' r='7' fill='%23F5B942'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <script>document.documentElement.classList.add("js")</script>
 </head>
 <body>
   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
     <symbol id="logo" viewBox="0 0 100 100">
-      <rect width="100" height="100" rx="22" fill="#1D4ED8"/>
+      <rect width="100" height="100" rx="22" fill="#5B4FD6"/>
       <path d="M22 76V24h11l24 34V24h11v52H57L33 42v34z" fill="#fff"/>
       <circle cx="78" cy="72" r="7" fill="#F5B942"/>
     </symbol>
   </svg>
 
+  <div class="progress" aria-hidden="true"></div>
   <a class="skip" href="#main">Skip to content</a>
 
   <header class="nav" id="top">
@@ -46,10 +47,20 @@
 
   <main id="main">
     <section class="hero" id="home">
+      <div class="shapes" aria-hidden="true"><span></span><span></span><span></span>
+        <i class="shoot"></i>
+        <svg class="constellation" viewBox="0 0 300 160" fill="none">
+          <polyline points="10,130 62,84 112,100 166,44 226,66 284,18" stroke="rgba(255,255,255,.55)" stroke-width="1.2"/>
+          <circle cx="10" cy="130" r="3.5" fill="#fff"/><circle cx="62" cy="84" r="3" fill="#F5D98B"/>
+          <circle cx="112" cy="100" r="3.5" fill="#fff"/><circle cx="166" cy="44" r="4" fill="#F5D98B"/>
+          <circle cx="226" cy="66" r="3" fill="#fff"/><circle cx="284" cy="18" r="3.5" fill="#9ED8FF"/>
+        </svg>
+      </div>
       <div class="hero-inner">
         <p class="hello">Hi, I’m</p>
         <h1>Nicko Lim<br>Babaran</h1>
         <p class="tagline">Computer Science student, learning by building.</p>
+        <p class="typing" aria-hidden="true"><span id="typed">Web developer in the making</span><span class="cursor"></span></p>
         <p class="meta">BS Computer Science, Cavite State University – Bacoor</p>
         <div class="actions">
           <a class="btn btn-primary" href="#work">View my work</a>

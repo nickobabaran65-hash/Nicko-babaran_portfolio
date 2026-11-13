@@ -1,4 +1,3 @@
-
 const projects = [
   {
     title: "Personal Portfolio Website",
@@ -74,6 +73,17 @@ menu.addEventListener("click", e => {
   if (e.target.tagName === "A") { menu.classList.remove("open"); btn.setAttribute("aria-expanded", false); }
 });
 
+/* Close menu when tapping outside or pressing Escape */
+document.addEventListener("click", e => {
+  if (!menu.contains(e.target) && !btn.contains(e.target)) {
+    menu.classList.remove("open");
+    btn.setAttribute("aria-expanded", false);
+  }
+});
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape") { menu.classList.remove("open"); btn.setAttribute("aria-expanded", false); }
+});
+
 /* Highlight current section in nav */
 const links = [...menu.querySelectorAll("a")];
 const io = new IntersectionObserver(entries => {
@@ -126,3 +136,42 @@ revealTargets.forEach(t => { t.classList.add("reveal"); reveal.observe(t); });
 /* Navbar shadow on scroll */
 const navBar = document.querySelector(".nav");
 addEventListener("scroll", () => navBar.classList.toggle("scrolled", scrollY > 10), { passive: true });
+
+/* Scroll progress bar */
+const progress = document.querySelector(".progress");
+function updateProgress() {
+  const max = document.documentElement.scrollHeight - innerHeight;
+  progress.style.transform = "scaleX(" + (max > 0 ? Math.min(scrollY / max, 1) : 0) + ")";
+}
+addEventListener("scroll", updateProgress, { passive: true });
+addEventListener("resize", updateProgress);
+updateProgress();
+
+/* Timeline line draws when visible */
+const tlObserver = new IntersectionObserver((entries, obs) => {
+  entries.forEach(en => {
+    if (en.isIntersecting) { en.target.classList.add("in"); obs.unobserve(en.target); }
+  });
+}, { threshold: 0.2 });
+document.querySelectorAll(".timeline").forEach(t => tlObserver.observe(t));
+
+/* Typing effect in hero */
+const typedEl = document.getElementById("typed");
+const phrases = [
+  "Web developer in the making",
+  "BSCS student at CvSU Bacoor",
+  "Problem solver",
+  "Fast learner"
+];
+if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  let p = 0, i = 0, deleting = false;
+  (function tick() {
+    const word = phrases[p];
+    i += deleting ? -1 : 1;
+    typedEl.textContent = word.slice(0, i);
+    let delay = deleting ? 35 : 70;
+    if (!deleting && i === word.length) { deleting = true; delay = 1600; }
+    else if (deleting && i === 0) { deleting = false; p = (p + 1) % phrases.length; delay = 350; }
+    setTimeout(tick, delay);
+  })();
+}
